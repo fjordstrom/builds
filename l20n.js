@@ -3461,6 +3461,11 @@ define('l20n/platform/io', function(require, exports) {
   'use strict';
 
   exports.load = function load(url, callback, sync) {
+    if(!url) {
+      callback(null,'<dummy "">');
+      return;
+    }
+    
     var xhr = new XMLHttpRequest();
     if (xhr.overrideMimeType) {
       xhr.overrideMimeType('text/plain');
